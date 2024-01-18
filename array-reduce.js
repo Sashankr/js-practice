@@ -54,6 +54,12 @@ const segregated = arr.reduce((previousValue,currentValue)=>{
 console.log("segregated",segregated)
 
 // Running in sequence
+/* 
+Suppose we want to run a set of functions as a pipe, we can use reduce to do that.
+previous value contains initial value at first and then stores value of previous function execution
+nextElement contains the current function
+*/
+
 
 const upperCase = str => str.toUpperCase();
 const reverse = str => str.split('').reverse().join('');
