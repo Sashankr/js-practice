@@ -55,3 +55,29 @@ const iterator = collectionSet.values();
 console.log(iterator.next().value); // 1
 console.log(iterator.next().value); // true
 console.log(iterator.next().value); // {a:1,b:2};
+
+/*
+WeakSet
+A weak set can only store objects
+Weak set is not iterable
+They have has, add and delete methods
+They do not have size property as well
+*/
+
+const team = new WeakSet();
+
+let obj1 = {name:"John",role:"developer"}
+let obj2 = {name:"Jacob",role:"designer"}
+let obj3 = {name:"Ralph",role:"tester"}
+
+team.add(obj1);
+team.add(obj2);
+team.add(obj3);
+
+console.log(team);
+
+// when we make the object stored in weakset to null
+// it automatically detects this and removes it
+console.log(team);
+obj1 = null;
+console.log(team);
