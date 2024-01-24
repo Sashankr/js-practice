@@ -77,3 +77,38 @@ const personal= new Individual("Sashank",26);
 console.log("ES6 Class Declaration");
 console.log(personal.details());
 
+// Class Expression can be written in 2 ways
+// Named Class Expression
+// Unnamed Class Expression
+
+const PersonUnNamed = class {
+  constructor(name,age){
+    this.name = name;
+    this.age = age;
+  }
+  details(){
+    console.log("Unnamed Class Expression");
+    return `${this.name}'s age is ${this.age}`
+
+  }
+}
+
+const PersonNamed = class User{
+
+  constructor(name,age){
+    this.name = name;
+    this.age = age;
+  }
+  
+  details(){
+   
+    console.log("Named class expression");
+    return `${this.name} age = ${this.age}`;
+  }
+}
+const user1 = new PersonUnNamed("Sashank",26);
+const user2 = new PersonNamed("H",26);
+console.log(user1.details());
+console.log(user2.details());
+
+
