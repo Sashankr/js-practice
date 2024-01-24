@@ -111,4 +111,17 @@ const user2 = new PersonNamed("H",26);
 console.log(user1.details());
 console.log(user2.details());
 
+// Advantages of classes
+
+/*
+ 
+ 1. Unlike functions classes are not hoisted, remaining in temporal dead zone until execution
+ 2. Code inside a class runs in strict mode.
+ 3. Methods inside a class are not enumerable.
+ 4. Calling class constructor without new keyword will result in an error.
+ 5. Creating class without a constructor will result in an error.
+ 6. Having a method name same as class name will cause an error.
+
+*/
+
 
