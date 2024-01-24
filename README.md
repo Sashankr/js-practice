@@ -14,3 +14,8 @@ Learned about array reduce method.
 
 Learned about Set and WeakSet data structures.
 
+24-01-2023
+
+Learned about ES6 Class Declaration, Class Expressions
+Learned about advantages of classes.
+
