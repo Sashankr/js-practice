@@ -6,7 +6,7 @@ Classes in Javascript do bring a new object oriented inheritence model, but inte
 
 Before ES6 this is how classes were used
 
-- Create a function 
+- Create a function
 
 function person(name,age){
  this.name = name;
@@ -44,15 +44,15 @@ person.prototype.details = function (){
 
 
 */
-function person(name,age){
+function person(name, age) {
   this.name = name;
   this.age = age;
-  this.details = function (){
+  this.details = function () {
     return this.name + "is" + this.age + "years old";
-  }
+  };
 }
 
-const sashank = new person("Sashank",26);
+const sashank = new person("Sashank", 26);
 console.log("Before ES6");
 console.log(sashank.details());
 
@@ -62,18 +62,17 @@ console.log(sashank.details());
 // 1. Class Declaration
 // 2. Class Expression
 
-class Individual{
+class Individual {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  details() {
+    return `${this.name}'s age is ${this.age}`;
+  }
+}
 
-constructor(name,age){
- this.name = name;
- this.age = age;
-}
-details(){
-return `${this.name}'s age is ${this.age}`
-}
-}
-
-const personal= new Individual("Sashank",26);
+const personal = new Individual("Sashank", 26);
 console.log("ES6 Class Declaration");
 console.log(personal.details());
 
@@ -82,39 +81,36 @@ console.log(personal.details());
 // Unnamed Class Expression
 
 const PersonUnNamed = class {
-  constructor(name,age){
+  constructor(name, age) {
     this.name = name;
     this.age = age;
   }
-  details(){
+  details() {
     console.log("Unnamed Class Expression");
-    return `${this.name}'s age is ${this.age}`
-
+    return `${this.name}'s age is ${this.age}`;
   }
-}
+};
 
-const PersonNamed = class User{
-
-  constructor(name,age){
+const PersonNamed = class User {
+  constructor(name, age) {
     this.name = name;
     this.age = age;
   }
-  
-  details(){
-   
+
+  details() {
     console.log("Named class expression");
     return `${this.name} age = ${this.age}`;
   }
-}
-const user1 = new PersonUnNamed("Sashank",26);
-const user2 = new PersonNamed("H",26);
+};
+const user1 = new PersonUnNamed("Sashank", 26);
+const user2 = new PersonNamed("H", 26);
 console.log(user1.details());
 console.log(user2.details());
 
 // Advantages of classes
 
 /*
- 
+
  1. Unlike functions classes are not hoisted, remaining in temporal dead zone until execution
  2. Code inside a class runs in strict mode.
  3. Methods inside a class are not enumerable.
@@ -124,4 +120,28 @@ console.log(user2.details());
 
 */
 
+// Static methods
+// These methods are acccecible only by the parent and not available to derived child or instance of the class
 
+console.log(`----------Statitic Methods----------
+
+
+  `);
+
+class StaticMethodExample {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+  details() {
+    return `The Car Manufacturer is ${this.make} and model is ${this.model}`;
+  }
+  static myStaticDetails() {
+    return `This is my static method`;
+  }
+}
+
+const car = new StaticMethodExample("Porche", 911);
+console.log(car.details());
+console.log(StaticMethodExample.myStaticDetails());
+// console.log(car.myStaticDetails()); Error myStaticDetails is not a function
