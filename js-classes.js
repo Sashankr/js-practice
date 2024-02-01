@@ -124,8 +124,6 @@ console.log(user2.details());
 // These methods are acccecible only by the parent and not available to derived child or instance of the class
 
 console.log(`----------Statitic Methods----------
-
-
   `);
 
 class StaticMethodExample {
@@ -145,3 +143,48 @@ const car = new StaticMethodExample("Porche", 911);
 console.log(car.details());
 console.log(StaticMethodExample.myStaticDetails());
 // console.log(car.myStaticDetails()); Error myStaticDetails is not a function
+console.log(`
+  Accessor properties----------
+  `);
+// Accessor Properties
+// We can use accessor properties get and set with classes
+
+class PersonSetter {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  set nickName(name) {
+    this.name = name;
+  }
+  get nickName() {
+    console.log("Nickname from getter : ", this.name);
+    return `Nickname ${this.name}`;
+  }
+}
+
+const newPerson = new PersonSetter("Sashank R", 26);
+newPerson.nickName = "Sash";
+newPerson.nickName;
+
+console.log(`
+  Computed methods----------
+  `);
+//
+
+let methodName = "getDetails";
+
+class Computed {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  [methodName]() {
+    console.log(`Computed method name `, this.name);
+  }
+}
+
+const computed = new Computed("Sashank", 26);
+computed[methodName]();
