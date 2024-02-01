@@ -188,3 +188,28 @@ class Computed {
 
 const computed = new Computed("Sashank", 26);
 computed[methodName]();
+
+console.log(`
+  Accessor Computed methods----------
+  `);
+//
+
+let accessorMethodName = "newName";
+
+class ComputedAccessor {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  set [accessorMethodName](name) {
+    this.name = name;
+  }
+  get [accessorMethodName]() {
+    console.log("Name from computed accessor", this.name);
+  }
+}
+
+const accessorComputed = new ComputedAccessor("Sashank", 26);
+accessorComputed[accessorMethodName] = "Sasha";
+accessorComputed[accessorMethodName];
