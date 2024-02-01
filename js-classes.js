@@ -213,3 +213,39 @@ class ComputedAccessor {
 const accessorComputed = new ComputedAccessor("Sashank", 26);
 accessorComputed[accessorMethodName] = "Sasha";
 accessorComputed[accessorMethodName];
+
+console.log(`
+  Inheritence----------
+  `);
+//
+
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getArea() {
+    console.log("Area: ", this.length * this.width);
+  }
+}
+
+class Square extends Rectangle {
+  constructor(length) {
+    super(length, length);
+  }
+}
+
+const rectangle = new Rectangle(10, 20);
+rectangle.getArea();
+const square = new Square(10);
+square.getArea();
+
+/*
+Things to keep in mind when using extends keyword
+Make sure to add a constructor in the class that is extending and also super keyword, otherwise there will be an error.
+
+If the parent has any static method, they will be accessible to new class as well.
+
+new.target can be used to check current instance of class and where it is called from.
+*/
