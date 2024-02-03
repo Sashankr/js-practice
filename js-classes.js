@@ -249,3 +249,28 @@ If the parent has any static method, they will be accessible to new class as wel
 
 new.target can be used to check current instance of class and where it is called from.
 */
+
+/*
+   One of the most powerful features of es6 is deriving class from an expression
+   You can use extends with any expression as long as it resolves with a function
+   with [[Construct]] and a prototype
+
+*/
+
+function RectangleFunc(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+RectangleFunc.prototype.getArea = function () {
+  console.log("Area is ", this.length * this.width);
+};
+
+class SquareEx extends RectangleFunc {
+  constructor(length) {
+    super(length, length);
+  }
+}
+
+const sqaureInstance = new SquareEx(10, 10);
+sqaureInstance.getArea();
